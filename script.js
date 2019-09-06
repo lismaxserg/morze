@@ -54,7 +54,7 @@ const dictionary = {
     }
 
     function decodeFromMorzeToNumbers(text){
-        for (key in dictionary) {
+        for (let key in dictionary) {
             if(dictionary[key] == text){
                 return key;
             }
