@@ -32,8 +32,8 @@ const dictionary = {
             if(iteratorDecode[0] == 'E'){
                 iteratorDecode = iteratorDecode.substr(1);
                 let o = iteratorDecode[0];
-                let newstr = iteratorDecode.substr(0, 0) + iteratorDecode[iteratorDecode.length-1]+ iteratorDecode.substr(0 + iteratorDecode[iteratorDecode.length-1].length);
-                let finalstr = newstr.substr(0, iteratorDecode.length-1) + o+ newstr.substr(iteratorDecode.length-1 + o.length)
+                let newstr = iteratorDecode.replaceAt(0, iteratorDecode[iteratorDecode.length-1]);
+                let finalstr = newstr.replaceAt(iteratorDecode.length-1, o)
                 result = result + decodeFromMorzeToNumbers(finalstr);
             } else if (iteratorDecode[0] == 'R') {
                 iteratorDecode = iteratorDecode.substr(1);
