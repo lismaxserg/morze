@@ -2,10 +2,12 @@ String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
 
-const fsread = require('fs');
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin
+});
 
-fsread.readFile('input.txt', 'utf8', function(error, data) {
-  if (error) throw error; // если возникла ошибка
+rl.on('line', (data) => {
 
 const dictionary = {
     1: '.----',
@@ -61,10 +63,7 @@ const dictionary = {
         }
     }
 
-  const fswrite = require('fs');
+    process.stdout.write(result);
 
-  fswrite.writeFile('output.txt', result, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+  
 });
